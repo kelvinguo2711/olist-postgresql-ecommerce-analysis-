@@ -74,8 +74,8 @@ The analysis focuses on e-commerce sales, customer behavior, product performance
 
 - [x] How many customers are in the dataset?
 - [x] How many orders are in the dataset?
-- [ ] How many products and sellers are there?
-- [ ] What is the date range of the orders?
+- [x] How many products and sellers are there?
+- [x] What is the date range of the orders?
 - [x] What are the different order statuses?
 - [x] Which Brazilian states have the most customers?
 
