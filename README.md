@@ -64,7 +64,7 @@ order_items
     ├──────────────► products
     │
     └──────────────► sellers
-
+---
 ##🔎 Analysis Questions
 
 The analysis focuses on e-commerce sales, customer behavior, product performance, seller performance, and order fulfillment.
