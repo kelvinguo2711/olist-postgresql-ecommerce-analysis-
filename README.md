@@ -64,7 +64,7 @@ order_items
     ├──────────────► products
     │
     └──────────────► sellers
-
+```
 ---
 ## 🔎 Analysis Questions
 
