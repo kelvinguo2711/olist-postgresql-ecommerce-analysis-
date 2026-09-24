@@ -81,9 +81,25 @@ The analysis focuses on e-commerce sales, customer behavior, product performance
 
 ### 2. Sales Analysis
 
-- [ ] What is the total revenue generated?
-- [ ] What is the average order value?
-- [ ] How does revenue change month over month?
-- [ ] Which categories generate the most revenue?
-- [ ] Which products generate the most revenue?
-- [ ] Which sellers generate the most revenue?
+- [x] What is the total revenue generated?
+- [x] What is the average order value?
+- [x] How does revenue change month over month?
+- [x] Which categories generate the most revenue?
+- [x] Which sellers generate the most revenue?
+
+3. Customer Analysis
+ - [ ] Who are the highest-value customers?
+ - [ ] How many orders does each customer make?
+ - [ ] What percentage of customers are repeat customers?
+ - [ ] How much revenue comes from repeat customers versus one-time customers?
+ - [ ] How long does it take customers to make a second purchase?
+4. Product & Seller Analysis
+- [ ] Which product categories have the highest average selling price?
+- [ ] What are the top products within each category?
+- [ ] Which sellers have the highest revenue?
+- [ ] Which sellers have high revenue but lower customer review scores?
+5. Delivery & Review Analysis
+- [ ] What percentage of orders were delivered late?
+- [ ] What is the average delivery time?
+- [ ] Which states have the longest delivery times?
+- [ ] Does delivery time relate to customer review scores?
