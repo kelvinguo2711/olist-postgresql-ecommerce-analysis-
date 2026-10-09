@@ -88,11 +88,11 @@ The analysis focuses on e-commerce sales, customer behavior, product performance
 - [x] Which sellers generate the most revenue?
 
 3. Customer Analysis
- - [ ] Who are the highest-value customers?
- - [ ] How many orders does each customer make?
- - [ ] What percentage of customers are repeat customers?
- - [ ] How much revenue comes from repeat customers versus one-time customers?
- - [ ] How long does it take customers to make a second purchase?
+ - [x] Who are the highest-value customers?
+ - [x] How many orders does each customer make?
+ - [x] What percentage of customers are repeat customers?
+ - [x] How much revenue comes from repeat customers versus one-time customers?
+ - [x] How long does it take customers to make a second purchase?
 4. Product & Seller Analysis
 - [ ] Which product categories have the highest average selling price?
 - [ ] What are the top products within each category?
