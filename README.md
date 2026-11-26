@@ -124,6 +124,7 @@ erDiagram
 - Product revenue is calculated using `order_items.price`, while payment value is analyzed separately using `order_payments.payment_value`.
 
 **Note:** The PK/FK labels in the diagram represent logical relationships based on the dataset. They do not necessarily mean that database constraints have been explicitly created in PostgreSQL.
+
 ---
 ## 🔎 Analysis Questions & SQL Skills
 
