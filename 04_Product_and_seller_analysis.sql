@@ -21,7 +21,37 @@ ORDER BY avg_selling_price DESC
 -- ============================================================
 -- Q2.  What are the top products within each category?
 -- ============================================================
+WITH product_revenue AS (
+    SELECT
+        p.product_category_name,
+        oi.product_id,
+        SUM(oi.price) AS total_revenue,
+        COUNT(DISTINCT oi.order_id) AS total_orders,
+        SUM(oi.order_item_id) AS total_units_sold
+    FROM order_items AS oi
+    INNER JOIN products AS p
+        ON oi.product_id = p.product_id
+    GROUP BY
+        p.product_category_name,
+        oi.product_id
+),
 
+ranked_products AS (
+    SELECT
+        *,
+        RANK() OVER (
+            PARTITION BY product_category_name
+            ORDER BY total_revenue DESC
+        ) AS product_rank
+    FROM product_revenue
+)
+
+SELECT *
+FROM ranked_products
+WHERE product_rank <= 3
+ORDER BY
+    product_category_name,
+    product_rank;
 
 -- ============================================================
 -- Q3.   Which sellers have the highest revenue?
@@ -86,6 +116,7 @@ SELECT
     RANK() OVER (
         ORDER BY total_revenue DESC
     ) AS revenue_rank,
+	
     RANK() OVER (
         ORDER BY avg_review_score ASC
     ) AS review_rank
