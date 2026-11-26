@@ -75,7 +75,7 @@ The project explores e-commerce sales performance, customer behavior, product pe
 | 1 | **Data Exploration** | Customer, order, product and seller counts; order status distribution; customer distribution by state | `COUNT()`, `DISTINCT`, `GROUP BY`, `ORDER BY`, `CREATE TABLE` | [`01_data_exploration.sql`](./01_data_exploration.sql) |
 | 2 | **Sales Analysis** | Total revenue, average order value, monthly revenue trends, top categories and sellers | `SUM()`, `AVG()`, `JOIN`, `GROUP BY`, `CTE`, `LAG()`, `DATE_TRUNC()` | [`02_sales_analysis.sql`](./02_sales_analysis.sql) |
 | 3 | **Customer Analysis** | Highest-value customers, order frequency, repeat purchase rate, revenue contribution and time to second purchase | `JOIN`, `CTE`, `CASE WHEN`, `COUNT(DISTINCT)`, `ROW_NUMBER()`, `MAX()`, `PERCENTILE_CONT()` | [`03_Customer_analysis.sql`](./03_Customer_analysis.sql) |
-| 4 | **Product & Seller Analysis** | Average selling price by category, seller revenue and seller performance against customer reviews | `JOIN`, `SUM()`, `AVG()`, `GROUP BY`, `COUNT(DISTINCT)`, CTE, RANK, PARTITION | [`04_Product_and_seller_analysis.sql`](./04_Product_and_seller_analysis.sql) |
+| 4 | **Product & Seller Analysis** | Average selling price by category, seller revenue and seller performance against customer reviews | `JOIN`, `SUM()`, `AVG()`, `GROUP BY`, `COUNT(DISTINCT)`, CTE, `RANK`, `PARTITION` | [`04_Product_and_seller_analysis.sql`](./04_Product_and_seller_analysis.sql) |
 | 5 | **Delivery & Review Analysis** | Late delivery rate, average delivery time, delivery performance by state and relationship between delivery time and review scores | Planned | Coming soon |
 
 ### SQL Techniques Covered
