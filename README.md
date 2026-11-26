@@ -42,47 +42,88 @@ The raw CSV files are not included in this repository.
 
 ---
 
-🏗️ Database Schema & Table Relationships
+## 🏗️ Database Schema & Table Relationships
+
 The following diagram illustrates the relationships between the seven tables used in this project.
 
-                  customers
-                      |
-                  customer_id
-                      |
-                      ▼
-                   orders
-                      |
-          ┌───────────┼──────────────┐
-          |           |              |
-       order_id    order_id       order_id
-          |           |              |
-          ▼           ▼              ▼
-   order_payments  order_reviews  order_items
-                                      |
-                              ┌───────┴────────┐
-                              |                |
-                          product_id        seller_id
-                              |                |
-                              ▼                ▼
-                           products         sellers
----
-Key Relationships
-Relationship	Join Key	Description
-Customers → Orders	customer_id	Connects customers to their orders
-Orders → Order Payments	order_id	Connects orders to payment records
-Orders → Order Reviews	order_id	Connects orders to customer reviews
-Orders → Order Items	order_id	Connects orders to purchased items
-Order Items → Products	product_id	Connects purchased items to product information
-Order Items → Sellers	seller_id	Connects purchased items to seller information
-Data Considerations:
+```mermaid
+erDiagram
+    customers ||--o{ orders : places
+    orders ||--o{ order_payments : has
+    orders ||--o{ order_reviews : receives
+    orders ||--o{ order_items : contains
+    products ||--o{ order_items : includes
+    sellers ||--o{ order_items : fulfills
 
-customer_id identifies a customer record associated with an order, while customer_unique_id identifies the same customer across multiple orders.
+    customers {
+        varchar customer_id PK
+        varchar customer_unique_id
+        int customer_zip_code_prefix
+        varchar customer_city
+        varchar customer_state
+    }
 
-An order can contain multiple items and payment records.
+    orders {
+        varchar order_id PK
+        varchar customer_id FK
+        varchar order_status
+        timestamp order_purchase_timestamp
+    }
 
-Payment and review data should be handled carefully when joining with order items to avoid duplicate rows and inflated calculations.
+    order_payments {
+        varchar order_id FK
+        int payment_sequential
+        varchar payment_type
+        numeric payment_value
+    }
 
-Product revenue is calculated using order_items.price, while payment value is analyzed separately using order_payments.payment_value.
+    order_reviews {
+        varchar review_id PK
+        varchar order_id FK
+        int review_score
+    }
+
+    order_items {
+        varchar order_id FK
+        int order_item_id
+        varchar product_id FK
+        varchar seller_id FK
+        numeric price
+        numeric freight_value
+    }
+
+    products {
+        varchar product_id PK
+        varchar product_category_name
+    }
+
+    sellers {
+        varchar seller_id PK
+        int seller_zip_code_prefix
+        varchar seller_city
+        varchar seller_state
+    }
+```
+
+### Key Relationships
+
+| Relationship | Join Key | Description |
+|---|---|---|
+| Customers → Orders | `customer_id` | Connects customers to their orders |
+| Orders → Order Payments | `order_id` | Connects orders to payment records |
+| Orders → Order Reviews | `order_id` | Connects orders to customer reviews |
+| Orders → Order Items | `order_id` | Connects orders to purchased items |
+| Order Items → Products | `product_id` | Connects purchased items to product information |
+| Order Items → Sellers | `seller_id` | Connects purchased items to seller information |
+
+### Data Considerations
+
+- `customer_id` identifies a customer record associated with an order, while `customer_unique_id` identifies the same customer across multiple orders.
+- An order can contain multiple items and payment records.
+- Payment and review data should be handled carefully when joining with order items to avoid duplicate rows and inflated calculations.
+- Product revenue is calculated using `order_items.price`, while payment value is analyzed separately using `order_payments.payment_value`.
+
+**Note:** The PK/FK labels in the diagram represent logical relationships based on the dataset. They do not necessarily mean that database constraints have been explicitly created in PostgreSQL.
 ---
 ## 🔎 Analysis Questions & SQL Skills
 
