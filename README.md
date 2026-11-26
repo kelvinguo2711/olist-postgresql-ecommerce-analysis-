@@ -42,29 +42,46 @@ The raw CSV files are not included in this repository.
 
 ---
 
-## 🗄️ Database Structure
+🏗️ Database Schema & Table Relationships
+The following diagram illustrates the relationships between the seven tables used in this project.
 
-The project uses a relational database structure with the following core tables:
+                  customers
+                      |
+                  customer_id
+                      |
+                      ▼
+                   orders
+                      |
+          ┌───────────┼──────────────┐
+          |           |              |
+       order_id    order_id       order_id
+          |           |              |
+          ▼           ▼              ▼
+   order_payments  order_reviews  order_items
+                                      |
+                              ┌───────┴────────┐
+                              |                |
+                          product_id        seller_id
+                              |                |
+                              ▼                ▼
+                           products         sellers
+Key Relationships
+Relationship	Join Key	Description
+Customers → Orders	customer_id	Connects customers to their orders
+Orders → Order Payments	order_id	Connects orders to payment records
+Orders → Order Reviews	order_id	Connects orders to customer reviews
+Orders → Order Items	order_id	Connects orders to purchased items
+Order Items → Products	product_id	Connects purchased items to product information
+Order Items → Sellers	seller_id	Connects purchased items to seller information
+Data Considerations:
 
-```text
-customers
-    │
-    │ customer_id
-    ▼
-orders
-    │
-    ├──────────────► order_payments
-    │
-    ├──────────────► order_reviews
-    │
-    │ order_id
-    ▼
-order_items
-    │
-    ├──────────────► products
-    │
-    └──────────────► sellers
-```
+customer_id identifies a customer record associated with an order, while customer_unique_id identifies the same customer across multiple orders.
+
+An order can contain multiple items and payment records.
+
+Payment and review data should be handled carefully when joining with order items to avoid duplicate rows and inflated calculations.
+
+Product revenue is calculated using order_items.price, while payment value is analyzed separately using order_payments.payment_value.
 ---
 ## 🔎 Analysis Questions & SQL Skills
 
