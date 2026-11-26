@@ -66,16 +66,25 @@ order_items
     └──────────────► sellers
 ```
 ---
-## 🔎 Analysis Questions
+## 🔎 Analysis Questions & SQL Skills
 
-The analysis focuses on e-commerce sales, customer behavior, product performance, seller performance, and order fulfillment using PostgreSQL.
+The project explores e-commerce sales performance, customer behavior, product performance, seller performance, and order fulfillment using PostgreSQL.
 
-| # | Analysis Section | Business Questions | SQL File |
-|---|---|---|---|
-| **1** | **Data Exploration** | 1. How many customers are in the dataset?<br>2. How many orders are in the dataset?<br>3. How many products and sellers are there?<br>4. What is the date range of the orders?<br>5. What are the different order statuses?<br>6. Which Brazilian states have the most customers? | [01_data_exploration.sql](./01_data_exploration.sql) |
-| **2** | **Sales Analysis** | 1. What is the total revenue generated?<br>2. What is the average order value?<br>3. How does revenue change month over month?<br>4. Which categories generate the most revenue?<br>5. Which sellers generate the most revenue? | [02_sales_analysis.sql](./02_sales_analysis.sql) |
-| **3** | **Customer Analysis** | 1. Who are the highest-value customers?<br>2. How many orders does each customer make?<br>3. What percentage of customers are repeat customers?<br>4. How much revenue comes from repeat customers versus one-time customers?<br>5. How long does it take customers to make a second purchase? | [03_Customer_analysis.sql](./03_Customer_analysis.sql) |
-| **4** | **Product & Seller Analysis** | 1. Which product categories have the highest average selling price?<br>2. What are the top products within each category?<br>3. Which sellers have the highest revenue?<br>4. Which sellers have high revenue but lower customer review scores? | [04_Product_and_seller_analysis.sql](./04_Product_and_seller_analysis.sql) |
-| **5** | **Delivery & Review Analysis** | 1. What percentage of orders were delivered late?<br>2. What is the average delivery time?<br>3. Which states have the longest delivery times?<br>4. Does delivery time relate to customer review scores? | *Coming soon* |
+| # | Analysis Section | Business Questions | SQL Skills Demonstrated | SQL File |
+|---|---|---|---|---|
+| 1 | **Data Exploration** | Customer, order, product and seller counts; order status distribution; customer distribution by state | `COUNT()`, `DISTINCT`, `GROUP BY`, `ORDER BY`, `CREATE TABLE` | [`01_data_exploration.sql`](./01_data_exploration.sql) |
+| 2 | **Sales Analysis** | Total revenue, average order value, monthly revenue trends, top categories and sellers | `SUM()`, `AVG()`, `JOIN`, `GROUP BY`, `CTE`, `LAG()`, `DATE_TRUNC()` | [`02_sales_analysis.sql`](./02_sales_analysis.sql) |
+| 3 | **Customer Analysis** | Highest-value customers, order frequency, repeat purchase rate, revenue contribution and time to second purchase | `JOIN`, `CTE`, `CASE WHEN`, `COUNT(DISTINCT)`, `ROW_NUMBER()`, `MAX()`, `PERCENTILE_CONT()` | [`03_Customer_analysis.sql`](./03_Customer_analysis.sql) |
+| 4 | **Product & Seller Analysis** | Average selling price by category, seller revenue and seller performance against customer reviews | `JOIN`, `SUM()`, `AVG()`, `GROUP BY`, `COUNT(DISTINCT)`, CTE | [`04_Product_and_seller_analysis.sql`](./04_Product_and_seller_analysis.sql) |
+| 5 | **Delivery & Review Analysis** | Late delivery rate, average delivery time, delivery performance by state and relationship between delivery time and review scores | Planned | Coming soon |
 
-**Progress:** Sections 1–4 have SQL files. Section 5 is planned for the next stage of analysis.
+### SQL Techniques Covered
+
+- **Data Retrieval & Aggregation:** `SELECT`, `WHERE`, `COUNT()`, `SUM()`, `AVG()`, `GROUP BY`
+- **Data Integration:** `INNER JOIN`, `LEFT JOIN`
+- **Query Structuring:** Common Table Expressions (CTEs)
+- **Window Functions:** `LAG()`, `ROW_NUMBER()`
+- **Conditional Logic:** `CASE WHEN`
+- **Statistical Analysis:** `PERCENTILE_CONT()`
+- **Date Analysis:** `DATE_TRUNC()`
+
