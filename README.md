@@ -94,10 +94,10 @@ The analysis focuses on e-commerce sales, customer behavior, product performance
  - [x] How much revenue comes from repeat customers versus one-time customers?
  - [x] How long does it take customers to make a second purchase?
 4. Product & Seller Analysis
-- [ ] Which product categories have the highest average selling price?
-- [ ] What are the top products within each category?
-- [ ] Which sellers have the highest revenue?
-- [ ] Which sellers have high revenue but lower customer review scores?
+- [x] Which product categories have the highest average selling price?
+- [x] What are the top products within each category?
+- [x] Which sellers have the highest revenue?
+- [x] Which sellers have high revenue but lower customer review scores?
 5. Delivery & Review Analysis
 - [ ] What percentage of orders were delivered late?
 - [ ] What is the average delivery time?
