@@ -65,6 +65,7 @@ The following diagram illustrates the relationships between the seven tables use
                               |                |
                               ▼                ▼
                            products         sellers
+
 Key Relationships
 Relationship	Join Key	Description
 Customers → Orders	customer_id	Connects customers to their orders
